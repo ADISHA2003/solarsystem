@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: url('https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/GTYSdDW/sparkling-night-sky-in-space_thumbnail-1080_01.png'); /* Replace 'starry-background.jpg' with your starry background image */
+      background-size: cover;
+    }
+
+    #sun {
+      width: 100px;
+      height: 100px;
+      background-color: yellow;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .planet {
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    #mercury { background-color: #c0c0c0; width: 10px; height: 10px; }
+    #venus   { background-color: #f5d165; width: 15px; height: 15px; }
+    #earth   { background-color: #4eb0e2; width: 20px; height: 20px; }
+    #mars    { background-color: #ff6347; width: 15px; height: 15px; }
+    #jupiter { background-color: #d2b48c; width: 40px; height: 40px; }
+    #saturn  { background-color: #deb887; width: 35px; height: 35px; position: absolute; }
+    #uranus  { background-color: #00bfff; width: 25px; height: 25px; }
+    #neptune { background-color: #000080; width: 22px; height: 22px; }
+
+    .ring {
+      border: 2px solid #deb887; /* Color of the Saturn's rings */
+      border-radius: 50%;
+      position: absolute;
+      width: 60px; /* Width of the rings */
+      height: 4px; /* Thickness of the rings */
+      top: calc(50% - 2px);
+      left: calc(50% - 30px);
+      transform-origin: center bottom;
+    }
+
+    #moon {
+      background-color: #d3d3d3;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div id="sun"></div>
+  <div class="planet" id="mercury"></div>
+  <div class="planet" id="venus"></div>
+  <div class="planet" id="earth">
+    <div id="moon"></div>
+  </div>
+  <div class="planet" id="mars"></div>
+  <div class="planet" id="jupiter"></div>
+  <div class="planet" id="saturn">
+    <div class="ring"></div>
+  </div>
+  <div class="planet" id="uranus"></div>
+  <div class="planet" id="neptune"></div>
+
+  <script>
+    const planets = document.querySelectorAll('.planet');
+    const orbits = [80, 120, 160, 200, 260, 320, 380, 440];
+    const speeds = [0.1, 0.07, 0.05, 0.03, 0.02, 0.01, 0.007, 0.005];
+    const moonSpeed = 0.1; // Adjusted for a slower moon orbit
+
+    function animatePlanets() {
+      planets.forEach((planet, index) => {
+        const orbit = orbits[index];
+        const speed = speeds[index];
+        const angle = performance.now() * 0.001 * speed;
+
+        const x = orbit * Math.cos(angle);
+        const y = orbit * Math.sin(angle);
+
+        planet.style.left = `calc(50% - ${x}px)`;
+        planet.style.top = `calc(50% - ${y}px)`;
+      });
+
+      const earth = document.getElementById('earth');
+      const moon = document.getElementById('moon');
+      const moonOrbit = 30;
+      const moonAngle = performance.now() * 0.001 * moonSpeed;
+
+      const moonX = moonOrbit * Math.cos(moonAngle);
+      const moonY = moonOrbit * Math.sin(moonAngle);
+
+      moon.style.left = `calc(50% - ${moonX}px)`;
+      moon.style.top = `calc(50% - ${moonY}px)`;
+
+      requestAnimationFrame(animatePlanets);
+    }
+
+    animatePlanets();
+  </script>
+</body>
+</html>
