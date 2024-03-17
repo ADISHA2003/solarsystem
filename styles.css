@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background: url('https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/GTYSdDW/sparkling-night-sky-in-space_thumbnail-1080_01.png'); /* Replace 'starry-background.jpg' with your starry background image */
+  background-size: cover;
+}
+
+#sun {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.planet {
+  border-radius: 50%;
+  position: absolute;
+}
+
+#mercury { background-color: #c0c0c0; width: 10px; height: 10px; }
+#venus   { background-color: #f5d165; width: 15px; height: 15px; }
+#earth   { background-color: #4eb0e2; width: 20px; height: 20px; }
+#mars    { background-color: #ff6347; width: 15px; height: 15px; }
+#jupiter { background-color: #d2b48c; width: 40px; height: 40px; }
+#saturn  { background-color: #deb887; width: 35px; height: 35px; position: absolute; }
+#uranus  { background-color: #00bfff; width: 25px; height: 25px; }
+#neptune { background-color: #000080; width: 22px; height: 22px; }
+
+.ring {
+  border: 2px solid #deb887; /* Color of the Saturn's rings */
+  border-radius: 50%;
+  position: absolute;
+  width: 60px; /* Width of the rings */
+  height: 4px; /* Thickness of the rings */
+  top: calc(50% - 2px);
+  left: calc(50% - 30px);
+  transform-origin: center bottom;
+}
+
+#moon {
+  background-color: #d3d3d3;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  position: absolute;
+}
