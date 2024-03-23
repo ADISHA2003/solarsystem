@@ -3,6 +3,8 @@ body {
   overflow: hidden;
   background: url('https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/GTYSdDW/sparkling-night-sky-in-space_thumbnail-1080_01.png'); /* Replace 'starry-background.jpg' with your starry background image */
   background-size: cover;
+  transform: rotate(90deg); /* Rotate the background image 90 degrees to the right */
+  transform-origin: top left; /* Set the rotation origin to top left */
 }
 
 #sun {
